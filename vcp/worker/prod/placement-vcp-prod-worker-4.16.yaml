@@ -1,0 +1,51 @@
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: isp-mon-uwm-vcp-prod-worker-416-placement
+  namespace: openshift-monitoring
+spec:
+  clusterSets:
+    - global
+  predicates:
+  - requiredClusterSelector:
+      labelSelector:
+        matchExpressions:
+          - key: cloud
+            operator: In
+            values:
+              - VSphere
+          - key: cluster-user-workload-monitoring
+            operator: In
+            values:
+              - "true"          
+          - key: feature.isp.com/infra-metrics-monitoring
+            operator: NotIn
+            values:
+              - "true"          
+          - key: feature.isp.com/worker-monitoring
+            operator: In
+            values:
+              - "true"          
+          - key: env
+            operator: In
+            values:
+              - prod
+          - key: openshiftVersion-major-minor
+            operator: In
+            values:
+              - "4.16"
+              - "4.17"
+              - "4.18"
+          - key: vendor
+            operator: In
+            values:
+              - OpenShift
+          - key: scope
+            operator: In
+            values:
+              - isp
+  tolerations:
+  - key: cluster.open-cluster-management.io/unreachable
+    operator: Exists
+  - key: cluster.open-cluster-management.io/unavailable
+    operator: Exists
