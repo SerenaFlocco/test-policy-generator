@@ -1,0 +1,43 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: policy-isp-openshift-monitoring-gcp-416
+policyDefaults:
+  namespace: policy-generator
+  severity: medium
+policies:
+  - name: isp-mon-uwm-gcp-noprod-infra-416
+    manifests:
+      - path: ./gcp/infra/noprod/manifests
+    placement:
+      placementPath: ./gcp/infra/noprod/placement-gcp-noprod-infra-4.16.yaml
+    disabled: false
+    remediationAction: inform
+  - name: isp-mon-uwm-gcp-prod-infra-416
+    manifests:
+      - path: ./gcp/infra/prod/manifests
+    placement:
+      placementPath: ./gcp/infra/prod/placement-gcp-prod-infra-4.16.yaml
+    disabled: false
+    remediationAction: inform
+  - name: isp-mon-uwm-gcp-noprod-metrics-416
+    manifests:
+      - path: ./gcp/infra-metrics/noprod/manifests
+    placement:
+      placementPath: ./gcp/infra-metrics/noprod/placement-gcp-noprod-metrics-4.16.yaml
+    disabled: false
+    remediationAction: inform
+  - name: isp-mon-uwm-gcp-prod-metrics-416
+    manifests:
+      - path: ./gcp/infra-metrics/prod/manifests
+    placement:
+      placementPath: ./gcp/infra-metrics/prod/placement-gcp-prod-metrics-4.16.yaml
+    disabled: false
+    remediationAction: inform
+  - name: isp-mon-nouwm-gcp-noprod-416
+    manifests:
+      - path: ./gcp/nouwm/noprod/cm-cluster-monitoring-config-nouwm-gcp-noprod-4.16.yaml
+    placement:
+      placementPath: ./gcp/nouwm/noprod/placement-nouwm-gcp-noprod-4.16.yaml
+    disabled: false
+    remediationAction: inform

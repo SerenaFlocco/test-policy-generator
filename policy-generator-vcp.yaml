@@ -1,0 +1,57 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: policy-isp-openshift-monitoring-vcp-416
+policyDefaults:
+  namespace: policy-generator
+  severity: medium
+policies:
+  - name: isp-mon-uwm-vcp-noprod-infra-416
+    manifests:
+      - path: ./vcp/infra/noprod/manifests
+    placement:
+      placementPath: ./vcp/infra/noprod/placement-vcp-noprod-infra-4.16.yaml
+    disabled: false
+    remediationAction: inform
+  - name: isp-mon-uwm-vcp-prod-infra-416
+    manifests:
+      - path: ./vcp/infra/prod/manifests
+    placement:
+      placementPath: ./vcp/infra/prod/placement-vcp-prod-infra-4.16.yaml
+    disabled: false
+    remediationAction: inform
+  - name: isp-mon-uwm-vcp-noprod-metrics-416
+    manifests:
+      - path: ./vcp/infra-metrics/noprod/manifests
+    placement:
+      placementPath: ./vcp/infra-metrics/noprod/placement-vcp-noprod-metrics-4.16.yaml
+    disabled: false
+    remediationAction: inform
+  - name: isp-mon-uwm-vcp-prod-metrics-416
+    manifests:
+      - path: ./vcp/infra-metrics/prod/manifests
+    placement:
+      placementPath: ./vcp/infra-metrics/prod/placement-vcp-prod-metrics-4.16.yaml
+    disabled: false
+    remediationAction: inform
+  - name: isp-mon-uwm-vcp-noprod-worker-416
+    manifests:
+      - path: ./vcp/worker/noprod/cm-cluster-monitoring-config-vcp-noprod-worker-4.16.yaml
+    placement:
+      placementPath: ./vcp/worker/noprod/placement-vcp-noprod-worker-4.16.yaml
+    disabled: false
+    remediationAction: inform
+  - name: isp-mon-uwm-vcp-prod-worker-416
+    manifests:
+      - path: ./vcp/worker/prod/cm-cluster-monitoring-config-vcp-prod-worker-4.16.yaml
+    placement:
+      placementPath: ./vcp/worker/prod/placement-vcp-prod-worker-4.16.yaml
+    disabled: false
+    remediationAction: inform
+  - name: isp-mon-nouwm-vcp-416
+    manifests:
+      - path: ./vcp/nouwm/cm-cluster-monitoring-config-nouwm-vcp-4.16.yaml
+    placement:
+      placementPath: ./vcp/nouwm/placement-nouwm-vcp-4.16.yaml
+    disabled: false
+    remediationAction: inform

@@ -46,7 +46,7 @@ spec:
     - apiVersion: apps.open-cluster-management.io/v1
       kinds:
         - Placement
-  channel: policy-generator/policygen-groupsync-channel
+  channel: policy-generator/policygen-monitoring-channel
   placement:
     placementRef:
       kind: Placement
