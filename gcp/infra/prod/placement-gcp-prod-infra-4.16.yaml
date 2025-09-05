@@ -2,7 +2,7 @@ apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
   name: isp-mon-uwm-gcp-prod-infra-416-placement
-  namespace: openshift-monitoring
+  namespace: policy-generator 
 spec:
   clusterSets:
     - global
