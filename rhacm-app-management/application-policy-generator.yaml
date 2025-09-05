@@ -43,7 +43,7 @@ spec:
     - apiVersion: policy.open-cluster-management.io/v1
       kinds:
         - "*"
-    - apiVersion: apps.open-cluster-management.io/v1
+    - apiVersion: cluster.open-cluster-management.io/v1beta1
       kinds:
         - Placement
   channel: policy-generator/policygen-monitoring-channel
@@ -52,7 +52,7 @@ spec:
       kind: Placement
       name: policygen-monitoring-placement
 ---
-apiVersion: apps.open-cluster-management.io/v1
+apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
   labels:
@@ -60,6 +60,8 @@ metadata:
   name: policygen-monitoring-placement
   namespace: policy-generator
 spec:
+  clusterSets:
+    - global
   predicates:
   - requiredClusterSelector:
       labelSelector:
