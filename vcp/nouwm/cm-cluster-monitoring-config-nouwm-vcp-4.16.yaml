@@ -4,7 +4,6 @@ data:
     alertmanagerMain: null
     enableUserWorkload: false
     http: null
-    k8sPrometheusAdapter: null
     kubeStateMetrics: null
     openshiftStateMetrics: null
     prometheusK8s:

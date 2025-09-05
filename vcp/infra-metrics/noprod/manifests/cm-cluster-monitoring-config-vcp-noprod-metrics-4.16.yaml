@@ -48,13 +48,6 @@ data:
       - key: "node-role.kubernetes.io/infra-metrics"
         operator: Exists
         effect: "NoExecute"
-    k8sPrometheusAdapter:
-      nodeSelector:
-        node-role.kubernetes.io/infra-metrics: ""
-      tolerations:
-      - key: "node-role.kubernetes.io/infra-metrics"
-        operator: Exists
-        effect: "NoExecute"
     kubeStateMetrics:
       nodeSelector:
         node-role.kubernetes.io/infra-metrics: ""
