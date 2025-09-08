@@ -12,7 +12,7 @@ policies:
     placement:
       placementPath: ./gcp/infra/noprod/placement-gcp-noprod-infra-4.16.yaml
     disabled: false
-    remediationAction: inform
+    remediationAction: enforce
   - name: isp-mon-uwm-gcp-prod-infra-416
     manifests:
       - path: ./gcp/infra/prod/manifests
